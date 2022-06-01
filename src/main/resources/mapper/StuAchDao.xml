@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.StuAchDao">
+
+    <resultMap type="com.example.scm.dto.StuAchDTO" id="StuAchDTOMap">
+        <result property="id" column="id"/>
+        <result property="raceName" column="name"/>
+        <result property="awardName" column="award"/>
+        <result property="time" column="date"/>
+        <result property="level" column="level"/>
+        <result property="teamName" column="team"/>
+        <result property="teacherName" column="teacher_name"/>
+    </resultMap>
+
+    <!--根据id查询奖项-->
+    <select id="stuAchCount" resultMap="StuAchDTOMap" resultType="com.example.scm.dto.StuAchDTO">
+        SELECT user.id as id, race.`name` as name,awards.`name` as award ,DATE_FORMAT(race.race_end,'%Y') as date,`level`.`name` as level,team.`name` as team,user_info.`name` as teacher_name
+        FROM
+            (user_info JOIN
+            (team JOIN
+                (`level` JOIN
+                    (user JOIN
+                        (student_team JOIN
+                            (awards JOIN
+                                (team_race JOIN race ON team_race.race_id = race.id)
+                                ON team_race.awards_id = awards.id)
+                            ON team_race.team_id = student_team.team_id)
+                        ON `user`.id = student_team.student_id)
+                    ON race.level_id = `level`.id)
+                ON team.id = student_team.team_id)
+            ON user_info.user_id = team.teacher_id)
+        WHERE student_team.`status`=1 AND team_race.awards_id!=-1 AND team_race.awards_id!=0 AND user.id = #{id}
+        ORDER BY race_end
+    </select>
+
+</mapper>
