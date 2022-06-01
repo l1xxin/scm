@@ -32,7 +32,7 @@ public class RoleServiceTest {
     }
 
     /**
-     * gengxxxjxxx
+     * 更新数据
      * @ throws Exception
      */
     @Test
