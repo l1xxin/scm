@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.RaceDao">
+
+    <resultMap type="com.example.scm.entity.Race" id="RaceMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="competitionId" column="competition_id" jdbcType="INTEGER"/>
+        <result property="levelId" column="level_id" jdbcType="INTEGER"/>
+        <result property="unitId" column="unit_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="request" column="request" jdbcType="VARCHAR"/>
+        <result property="place" column="place" jdbcType="VARCHAR"/>
+        <result property="registrationStart" column="registration_start" jdbcType="TIMESTAMP"/>
+        <result property="registrationEnd" column="registration_end" jdbcType="TIMESTAMP"/>
+        <result property="raceStart" column="race_start" jdbcType="TIMESTAMP"/>
+        <result property="raceEnd" column="race_end" jdbcType="TIMESTAMP"/>
+        <result property="numberMin" column="number_min" jdbcType="INTEGER"/>
+        <result property="numberMax" column="number_max" jdbcType="INTEGER"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into race(competition_id, level_id, unit_id, name, request, place, registration_start,
+        registration_end, race_start, race_end, number_min, number_max, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.competitionId}, #{entity.levelId}, #{entity.unitId}, #{entity.name}, #{entity.request},
+            #{entity.place}, #{entity.registrationStart}, #{entity.registrationEnd}, #{entity.raceStart},
+            #{entity.raceEnd}, #{entity.numberMin}, #{entity.numberMax}, #{entity.state})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into race(competition_id, level_id, unit_id, name, request, place, registration_start,
+        registration_end, race_start, race_end, number_min, number_max, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.competitionId}, #{entity.levelId}, #{entity.unitId}, #{entity.name}, #{entity.request},
+            #{entity.place}, #{entity.registrationStart}, #{entity.registrationEnd}, #{entity.raceStart},
+            #{entity.raceEnd}, #{entity.numberMin}, #{entity.numberMax}, #{entity.state})
+        </foreach>
+        on duplicate key update
+        competition_id = values(competition_id) , level_id = values(level_id) , unit_id = values(unit_id) , name =
+        values(name) , request = values(request) , place = values(place) , registration_start =
+        values(registration_start) , registration_end = values(registration_end) , race_start = values(race_start) ,
+        race_end = values(race_end) , number_min = values(number_min) , number_max = values(number_max) , state =
+        values(state)
+    </insert>
+
+</mapper>
+

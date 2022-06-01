@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.TeamWorkDao">
+
+    <resultMap type="com.example.scm.entity.TeamWork" id="TeamWorkMap">
+        <result property="teamId" column="team_id" jdbcType="INTEGER"/>
+        <result property="comment" column="comment" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="teamId" useGeneratedKeys="true">
+        insert into team_work(comment, status, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.comment}, #{entity.status}, #{entity.state})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="teamId" useGeneratedKeys="true">
+        insert into team_work(comment, status, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.comment}, #{entity.status}, #{entity.state})
+        </foreach>
+        on duplicate key update
+        comment = values(comment) , status = values(status) , state = values(state)
+    </insert>
+
+</mapper>
+

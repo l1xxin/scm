@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.TeamFileDao">
+
+    <resultMap type="com.example.scm.entity.TeamFile" id="TeamFileMap">
+        <result property="fileId" column="file_id" jdbcType="INTEGER"/>
+        <result property="teamId" column="team_id" jdbcType="INTEGER"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="fileId" useGeneratedKeys="true">
+        insert into team_file(team_id, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.teamId}, #{entity.state})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="fileId" useGeneratedKeys="true">
+        insert into team_file(team_id, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.teamId}, #{entity.state})
+        </foreach>
+        on duplicate key update
+        team_id = values(team_id) , state = values(state)
+    </insert>
+
+</mapper>
+

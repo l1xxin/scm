@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.UserInfoDao">
+
+    <resultMap type="com.example.scm.entity.UserInfo" id="UserInfoMap">
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" jdbcType="VARCHAR"/>
+        <result property="area" column="area" jdbcType="VARCHAR"/>
+        <result property="birth" column="birth" jdbcType="TIMESTAMP"/>
+        <result property="eamil" column="eamil" jdbcType="VARCHAR"/>
+        <result property="phone" column="phone" jdbcType="VARCHAR"/>
+        <result property="qq" column="qq" jdbcType="VARCHAR"/>
+        <result property="wechat" column="wechat" jdbcType="VARCHAR"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="userId" useGeneratedKeys="true">
+        insert into user_info(name, sex, area, birth, eamil, phone, qq, wechat, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.sex}, #{entity.area}, #{entity.birth}, #{entity.eamil}, #{entity.phone},
+            #{entity.qq}, #{entity.wechat}, #{entity.state})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="userId" useGeneratedKeys="true">
+        insert into user_info(name, sex, area, birth, eamil, phone, qq, wechat, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.sex}, #{entity.area}, #{entity.birth}, #{entity.eamil}, #{entity.phone},
+            #{entity.qq}, #{entity.wechat}, #{entity.state})
+        </foreach>
+        on duplicate key update
+        name = values(name) , sex = values(sex) , area = values(area) , birth = values(birth) , eamil = values(eamil) ,
+        phone = values(phone) , qq = values(qq) , wechat = values(wechat) , state = values(state)
+    </insert>
+
+</mapper>
+

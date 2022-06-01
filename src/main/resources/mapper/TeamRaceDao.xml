@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.TeamRaceDao">
+
+    <resultMap type="com.example.scm.entity.TeamRace" id="TeamRaceMap">
+        <result property="teamId" column="team_id" jdbcType="INTEGER"/>
+        <result property="raceId" column="race_id" jdbcType="INTEGER"/>
+        <result property="progress" column="progress" jdbcType="INTEGER"/>
+        <result property="score" column="score" jdbcType="VARCHAR"/>
+        <result property="awardsId
+awardsId
+awardsId" column="awards_id
+awards_id
+awards_id" jdbcType="INTEGER"/>
+        <result property="state" column="state" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="teamId" useGeneratedKeys="true">
+        insert into team_race(race_id, progress, score, awards_id
+        awards_id
+        awards_id, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.raceId}, #{entity.progress}, #{entity.score}, #{entity.awardsId
+awardsId
+awardsId}, #{entity.state})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="teamId" useGeneratedKeys="true">
+        insert into team_race(race_id, progress, score, awards_id
+        awards_id
+        awards_id, state)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.raceId}, #{entity.progress}, #{entity.score}, #{entity.awardsId
+awardsId
+awardsId}, #{entity.state})
+        </foreach>
+        on duplicate key update
+        race_id = values(race_id) , progress = values(progress) , score = values(score) , awards_id
+        awards_id
+        awards_id = values(awards_id
+        awards_id
+        awards_id) , state = values(state)
+    </insert>
+
+</mapper>
+
