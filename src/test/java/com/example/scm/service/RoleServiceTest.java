@@ -30,6 +30,11 @@ public class RoleServiceTest {
         role.setState(1);
         roleService.save(role);
     }
+
+    /**
+     * gengxxxjxxx
+     * @ throws Exception
+     */
     @Test
     public void update() throws Exception{
         Role role = new Role();
@@ -38,4 +43,6 @@ public class RoleServiceTest {
         role.setState(1);
         roleService.updateById(role);
     }
+
+
 }
