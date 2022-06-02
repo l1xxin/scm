@@ -7,43 +7,28 @@
         <result property="raceId" column="race_id" jdbcType="INTEGER"/>
         <result property="progress" column="progress" jdbcType="INTEGER"/>
         <result property="score" column="score" jdbcType="VARCHAR"/>
-        <result property="awardsId
-awardsId
-awardsId" column="awards_id
-awards_id
-awards_id" jdbcType="INTEGER"/>
+        <result property="awardsId" column="awards_id" jdbcType="INTEGER"/>
         <result property="state" column="state" jdbcType="INTEGER"/>
     </resultMap>
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="teamId" useGeneratedKeys="true">
-        insert into team_race(race_id, progress, score, awards_id
-        awards_id
-        awards_id, state)
+        insert into scm.team_race(race_id, progress, score, awards_id, state)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.raceId}, #{entity.progress}, #{entity.score}, #{entity.awardsId
-awardsId
-awardsId}, #{entity.state})
+            (#{entity.raceId}, #{entity.progress}, #{entity.score}, #{entity.awardsId}, #{entity.state})
         </foreach>
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="teamId" useGeneratedKeys="true">
-        insert into team_race(race_id, progress, score, awards_id
-        awards_id
-        awards_id, state)
+        insert into scm.team_race(race_id, progress, score, awards_id, state)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.raceId}, #{entity.progress}, #{entity.score}, #{entity.awardsId
-awardsId
-awardsId}, #{entity.state})
+            (#{entity.raceId}, #{entity.progress}, #{entity.score}, #{entity.awardsId}, #{entity.state})
         </foreach>
         on duplicate key update
-        race_id = values(race_id) , progress = values(progress) , score = values(score) , awards_id
-        awards_id
-        awards_id = values(awards_id
-        awards_id
-        awards_id) , state = values(state)
+        race_id = values(race_id) , progress = values(progress) , score = values(score) , awards_id = values(awards_id)
+        , state = values(state)
     </insert>
 
 </mapper>

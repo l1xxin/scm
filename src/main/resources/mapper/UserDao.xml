@@ -4,6 +4,7 @@
 
     <resultMap type="com.example.scm.entity.User" id="UserMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="roleId" column="role_id" jdbcType="INTEGER"/>
         <result property="account" column="account" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
         <result property="state" column="state" jdbcType="INTEGER"/>
@@ -11,21 +12,21 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into user(account, password, state)
+        insert into scm.user(role_id, account, password, state)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.account}, #{entity.password}, #{entity.state})
+            (#{entity.roleId}, #{entity.account}, #{entity.password}, #{entity.state})
         </foreach>
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into user(account, password, state)
+        insert into scm.user(role_id, account, password, state)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.account}, #{entity.password}, #{entity.state})
+            (#{entity.roleId}, #{entity.account}, #{entity.password}, #{entity.state})
         </foreach>
         on duplicate key update
-        account = values(account) , password = values(password) , state = values(state)
+        role_id = values(role_id) , account = values(account) , password = values(password) , state = values(state)
     </insert>
 
 </mapper>

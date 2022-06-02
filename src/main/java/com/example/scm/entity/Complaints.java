@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 投诉表(Complaints)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:42
+ * @since 2022-06-02 10:33:01
  */
 @SuppressWarnings("serial")
 public class Complaints extends Model<Complaints> {

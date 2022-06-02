@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 团队比赛作品审核表(TeamWork)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:47
+ * @since 2022-06-02 10:33:17
  */
 @SuppressWarnings("serial")
 public class TeamWork extends Model<TeamWork> {
@@ -18,7 +18,6 @@ public class TeamWork extends Model<TeamWork> {
     //返回意见
     private String comment;
     //审核状态
-
     private Integer status;
     //删除位
     private Integer state;

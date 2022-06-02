@@ -10,7 +10,7 @@ import com.example.scm.entity.Awards;
  * 奖项表(Awards)表数据库访问层
  *
  * @author makejava
- * @since 2022-05-30 19:46:48
+ * @since 2022-06-02 10:32:53
  */
 public interface AwardsDao extends BaseMapper<Awards> {
 

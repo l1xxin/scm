@@ -10,7 +10,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="userId" useGeneratedKeys="true">
-        insert into user_role(role_id, state)
+        insert into scm.user_role(role_id, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.roleId}, #{entity.state})
@@ -18,7 +18,7 @@
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="userId" useGeneratedKeys="true">
-        insert into user_role(role_id, state)
+        insert into scm.user_role(role_id, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.roleId}, #{entity.state})

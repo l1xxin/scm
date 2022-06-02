@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 用户角色分配表(UserRole)表服务实现类
  *
  * @author makejava
- * @since 2022-05-30 19:46:43
+ * @since 2022-06-02 10:33:24
  */
 @Service("userRoleService")
 public class UserRoleServiceImpl extends ServiceImpl<UserRoleDao, UserRole> implements UserRoleService {

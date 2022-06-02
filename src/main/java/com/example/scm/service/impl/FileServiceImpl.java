@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 文件表(File)表服务实现类
  *
  * @author makejava
- * @since 2022-05-30 19:46:40
+ * @since 2022-06-02 10:33:00
  */
 @Service("fileService")
 public class FileServiceImpl extends ServiceImpl<FileDao, File> implements FileService {

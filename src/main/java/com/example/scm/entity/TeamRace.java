@@ -9,12 +9,11 @@ import java.io.Serializable;
  * 参赛表(TeamRace)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:44
+ * @since 2022-06-02 10:33:15
  */
 @SuppressWarnings("serial")
 public class TeamRace extends Model<TeamRace> {
     //团队编号(自增长)
-
     private Integer teamId;
     //比赛编号
     private Integer raceId;

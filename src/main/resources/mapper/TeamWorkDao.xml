@@ -11,7 +11,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="teamId" useGeneratedKeys="true">
-        insert into team_work(comment, status, state)
+        insert into scm.team_work(comment, status, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.comment}, #{entity.status}, #{entity.state})
@@ -19,7 +19,7 @@
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="teamId" useGeneratedKeys="true">
-        insert into team_work(comment, status, state)
+        insert into scm.team_work(comment, status, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.comment}, #{entity.status}, #{entity.state})

@@ -4,13 +4,12 @@ package com.example.scm.entity;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 文件表(File)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:37
+ * @since 2022-06-02 10:32:59
  */
 @SuppressWarnings("serial")
 public class File extends Model<File> {

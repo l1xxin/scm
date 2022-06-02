@@ -6,20 +6,28 @@ import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
 
 /**
- * 团队比赛提交的文件表(TeamFile)表实体类
+ * 比赛文件(RaceFile)表实体类
  *
  * @author makejava
- * @since 2022-06-02 10:33:13
+ * @since 2022-06-02 10:33:05
  */
 @SuppressWarnings("serial")
-public class TeamFile extends Model<TeamFile> {
+public class RaceFile extends Model<RaceFile> {
+    //比赛编号
+    private Integer raceId;
     //文件编号
     private Integer fileId;
-    //团队编号
-    private Integer teamId;
     //删除位
     private Integer state;
 
+
+    public Integer getRaceId() {
+        return raceId;
+    }
+
+    public void setRaceId(Integer raceId) {
+        this.raceId = raceId;
+    }
 
     public Integer getFileId() {
         return fileId;
@@ -27,14 +35,6 @@ public class TeamFile extends Model<TeamFile> {
 
     public void setFileId(Integer fileId) {
         this.fileId = fileId;
-    }
-
-    public Integer getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(Integer teamId) {
-        this.teamId = teamId;
     }
 
     public Integer getState() {
@@ -52,7 +52,7 @@ public class TeamFile extends Model<TeamFile> {
      */
     @Override
     protected Serializable pkVal() {
-        return this.fileId;
+        return this.raceId;
     }
 }
 

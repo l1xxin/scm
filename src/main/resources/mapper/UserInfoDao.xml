@@ -17,7 +17,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="userId" useGeneratedKeys="true">
-        insert into user_info(name, sex, area, birth, eamil, phone, qq, wechat, state)
+        insert into scm.user_info(name, sex, area, birth, eamil, phone, qq, wechat, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.sex}, #{entity.area}, #{entity.birth}, #{entity.eamil}, #{entity.phone},
@@ -26,7 +26,7 @@
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="userId" useGeneratedKeys="true">
-        insert into user_info(name, sex, area, birth, eamil, phone, qq, wechat, state)
+        insert into scm.user_info(name, sex, area, birth, eamil, phone, qq, wechat, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.sex}, #{entity.area}, #{entity.birth}, #{entity.eamil}, #{entity.phone},

@@ -10,7 +10,7 @@ import com.example.scm.entity.File;
  * 文件表(File)表数据库访问层
  *
  * @author makejava
- * @since 2022-05-30 19:46:36
+ * @since 2022-06-02 10:32:59
  */
 public interface FileDao extends BaseMapper<File> {
 

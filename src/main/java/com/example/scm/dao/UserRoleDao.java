@@ -10,7 +10,7 @@ import com.example.scm.entity.UserRole;
  * 用户角色分配表(UserRole)表数据库访问层
  *
  * @author makejava
- * @since 2022-05-30 19:46:42
+ * @since 2022-06-02 10:33:23
  */
 public interface UserRoleDao extends BaseMapper<UserRole> {
 

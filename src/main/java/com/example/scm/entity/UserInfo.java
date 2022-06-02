@@ -4,13 +4,12 @@ package com.example.scm.entity;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 用户信息表(UserInfo)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:41
+ * @since 2022-06-02 10:33:22
  */
 @SuppressWarnings("serial")
 public class UserInfo extends Model<UserInfo> {

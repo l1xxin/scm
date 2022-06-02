@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 单位表(Unit)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:47
+ * @since 2022-06-02 10:33:18
  */
 @SuppressWarnings("serial")
 public class Unit extends Model<Unit> {

@@ -11,7 +11,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into competition(name, content, state)
+        insert into scm.competition(name, content, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.content}, #{entity.state})
@@ -19,7 +19,7 @@
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into competition(name, content, state)
+        insert into scm.competition(name, content, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.content}, #{entity.state})

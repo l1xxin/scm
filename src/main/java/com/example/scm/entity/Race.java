@@ -4,13 +4,12 @@ package com.example.scm.entity;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * 比赛表(Race)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:51
+ * @since 2022-06-02 10:33:04
  */
 @SuppressWarnings("serial")
 public class Race extends Model<Race> {
@@ -40,6 +39,8 @@ public class Race extends Model<Race> {
     private Integer numberMin;
     //比赛团队最多人数
     private Integer numberMax;
+    //是否评奖
+    private Integer status;
     //删除位
     private Integer state;
 
@@ -146,6 +147,14 @@ public class Race extends Model<Race> {
 
     public void setNumberMax(Integer numberMax) {
         this.numberMax = numberMax;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getState() {

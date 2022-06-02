@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 比赛级别表(Level)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:46
+ * @since 2022-06-02 10:33:02
  */
 @SuppressWarnings("serial")
 public class Level extends Model<Level> {

@@ -9,12 +9,14 @@ import java.io.Serializable;
  * 用户表(User)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:50
+ * @since 2022-06-02 10:33:20
  */
 @SuppressWarnings("serial")
 public class User extends Model<User> {
     //用户编号(自增长)
     private Integer id;
+    //用户身份
+    private Integer roleId;
     //用户账号
     private String account;
     //用户密码
@@ -29,6 +31,14 @@ public class User extends Model<User> {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
     public String getAccount() {

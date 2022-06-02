@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 奖项表(Awards)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:48
+ * @since 2022-06-02 10:32:55
  */
 @SuppressWarnings("serial")
 public class Awards extends Model<Awards> {

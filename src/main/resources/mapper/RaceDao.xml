@@ -16,36 +16,37 @@
         <result property="raceEnd" column="race_end" jdbcType="TIMESTAMP"/>
         <result property="numberMin" column="number_min" jdbcType="INTEGER"/>
         <result property="numberMax" column="number_max" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
         <result property="state" column="state" jdbcType="INTEGER"/>
     </resultMap>
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into race(competition_id, level_id, unit_id, name, request, place, registration_start,
-        registration_end, race_start, race_end, number_min, number_max, state)
+        insert into scm.race(competition_id, level_id, unit_id, name, request, place, registration_start,
+        registration_end, race_start, race_end, number_min, number_max, status, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.competitionId}, #{entity.levelId}, #{entity.unitId}, #{entity.name}, #{entity.request},
             #{entity.place}, #{entity.registrationStart}, #{entity.registrationEnd}, #{entity.raceStart},
-            #{entity.raceEnd}, #{entity.numberMin}, #{entity.numberMax}, #{entity.state})
+            #{entity.raceEnd}, #{entity.numberMin}, #{entity.numberMax}, #{entity.status}, #{entity.state})
         </foreach>
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into race(competition_id, level_id, unit_id, name, request, place, registration_start,
-        registration_end, race_start, race_end, number_min, number_max, state)
+        insert into scm.race(competition_id, level_id, unit_id, name, request, place, registration_start,
+        registration_end, race_start, race_end, number_min, number_max, status, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.competitionId}, #{entity.levelId}, #{entity.unitId}, #{entity.name}, #{entity.request},
             #{entity.place}, #{entity.registrationStart}, #{entity.registrationEnd}, #{entity.raceStart},
-            #{entity.raceEnd}, #{entity.numberMin}, #{entity.numberMax}, #{entity.state})
+            #{entity.raceEnd}, #{entity.numberMin}, #{entity.numberMax}, #{entity.status}, #{entity.state})
         </foreach>
         on duplicate key update
         competition_id = values(competition_id) , level_id = values(level_id) , unit_id = values(unit_id) , name =
         values(name) , request = values(request) , place = values(place) , registration_start =
         values(registration_start) , registration_end = values(registration_end) , race_start = values(race_start) ,
-        race_end = values(race_end) , number_min = values(number_min) , number_max = values(number_max) , state =
-        values(state)
+        race_end = values(race_end) , number_min = values(number_min) , number_max = values(number_max) , status =
+        values(status) , state = values(state)
     </insert>
 
 </mapper>

@@ -10,7 +10,7 @@ import com.example.scm.entity.Level;
  * 比赛级别表(Level)表数据库访问层
  *
  * @author makejava
- * @since 2022-05-30 19:46:46
+ * @since 2022-06-02 10:33:02
  */
 public interface LevelDao extends BaseMapper<Level> {
 

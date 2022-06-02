@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 团队成员表(StudentTeam)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:41
+ * @since 2022-06-02 10:33:10
  */
 @SuppressWarnings("serial")
 public class StudentTeam extends Model<StudentTeam> {
@@ -19,7 +19,7 @@ public class StudentTeam extends Model<StudentTeam> {
     private Integer studentId;
     //是否同意邀请
 
-    private Integer statue;
+    private Integer status;
     //删除位
     private Integer state;
 
@@ -40,12 +40,12 @@ public class StudentTeam extends Model<StudentTeam> {
         this.studentId = studentId;
     }
 
-    public Integer getStatue() {
-        return statue;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setStatue(Integer statue) {
-        this.statue = statue;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public Integer getState() {

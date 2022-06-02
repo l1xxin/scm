@@ -14,7 +14,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into file(user_id, name, md5, path, upload_time, state)
+        insert into scm.file(user_id, name, md5, path, upload_time, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.userId}, #{entity.name}, #{entity.md5}, #{entity.path}, #{entity.uploadTime}, #{entity.state})
@@ -22,7 +22,7 @@
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into file(user_id, name, md5, path, upload_time, state)
+        insert into scm.file(user_id, name, md5, path, upload_time, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.userId}, #{entity.name}, #{entity.md5}, #{entity.path}, #{entity.uploadTime}, #{entity.state})

@@ -10,7 +10,7 @@ import com.example.scm.entity.Role;
  * 角色表(Role)表数据库访问层
  *
  * @author makejava
- * @since 2022-05-30 19:46:43
+ * @since 2022-06-02 10:33:07
  */
 public interface RoleDao extends BaseMapper<Role> {
 

@@ -13,7 +13,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into complaints(user_id, team_id, description, progress, state)
+        insert into scm.complaints(user_id, team_id, description, progress, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.userId}, #{entity.teamId}, #{entity.description}, #{entity.progress}, #{entity.state})
@@ -21,7 +21,7 @@
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into complaints(user_id, team_id, description, progress, state)
+        insert into scm.complaints(user_id, team_id, description, progress, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.userId}, #{entity.teamId}, #{entity.description}, #{entity.progress}, #{entity.state})

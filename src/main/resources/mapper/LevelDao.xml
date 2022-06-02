@@ -10,7 +10,7 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into level(name, state)
+        insert into scm.level(name, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.state})
@@ -18,7 +18,7 @@
     </insert>
     <!-- 批量插入或按主键更新 -->
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into level(name, state)
+        insert into scm.level(name, state)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.name}, #{entity.state})

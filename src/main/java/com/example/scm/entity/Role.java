@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 角色表(Role)表实体类
  *
  * @author makejava
- * @since 2022-05-30 19:46:43
+ * @since 2022-06-02 10:33:07
  */
 @SuppressWarnings("serial")
 public class Role extends Model<Role> {

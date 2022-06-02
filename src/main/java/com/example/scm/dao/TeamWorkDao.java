@@ -10,7 +10,7 @@ import com.example.scm.entity.TeamWork;
  * 团队比赛作品审核表(TeamWork)表数据库访问层
  *
  * @author makejava
- * @since 2022-05-30 19:46:47
+ * @since 2022-06-02 10:33:16
  */
 public interface TeamWorkDao extends BaseMapper<TeamWork> {
 
