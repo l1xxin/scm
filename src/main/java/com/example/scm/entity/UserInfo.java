@@ -4,6 +4,7 @@ package com.example.scm.entity;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 用户信息表(UserInfo)表实体类
