@@ -10,7 +10,7 @@ import com.example.scm.entity.TeamFile;
  * 团队比赛提交的文件表(TeamFile)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-02 10:33:13
+ * @since 2022-06-04 00:25:27
  */
 public interface TeamFileDao extends BaseMapper<TeamFile> {
 

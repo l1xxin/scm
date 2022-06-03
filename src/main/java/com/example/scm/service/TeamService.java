@@ -7,7 +7,7 @@ import com.example.scm.entity.Team;
  * 团队表(Team)表服务接口
  *
  * @author makejava
- * @since 2022-06-02 10:33:12
+ * @since 2022-06-04 00:25:26
  */
 public interface TeamService extends IService<Team> {
 

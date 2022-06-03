@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * (Competition)表服务实现类
  *
  * @author makejava
- * @since 2022-06-02 10:32:59
+ * @since 2022-06-04 00:25:19
  */
 @Service("competitionService")
 public class CompetitionServiceImpl extends ServiceImpl<CompetitionDao, Competition> implements CompetitionService {

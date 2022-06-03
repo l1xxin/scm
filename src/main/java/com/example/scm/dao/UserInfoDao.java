@@ -10,7 +10,7 @@ import com.example.scm.entity.UserInfo;
  * 用户信息表(UserInfo)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-02 10:33:22
+ * @since 2022-06-04 00:25:31
  */
 public interface UserInfoDao extends BaseMapper<UserInfo> {
 

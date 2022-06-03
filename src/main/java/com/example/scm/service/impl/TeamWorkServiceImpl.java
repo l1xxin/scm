@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 团队比赛作品审核表(TeamWork)表服务实现类
  *
  * @author makejava
- * @since 2022-06-02 10:33:17
+ * @since 2022-06-04 00:25:29
  */
 @Service("teamWorkService")
 public class TeamWorkServiceImpl extends ServiceImpl<TeamWorkDao, TeamWork> implements TeamWorkService {

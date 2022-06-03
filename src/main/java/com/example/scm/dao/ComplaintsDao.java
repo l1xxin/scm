@@ -10,7 +10,7 @@ import com.example.scm.entity.Complaints;
  * 投诉表(Complaints)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-02 10:33:00
+ * @since 2022-06-04 00:25:19
  */
 public interface ComplaintsDao extends BaseMapper<Complaints> {
 

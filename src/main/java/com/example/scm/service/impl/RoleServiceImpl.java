@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 角色表(Role)表服务实现类
  *
  * @author makejava
- * @since 2022-06-02 10:33:08
+ * @since 2022-06-04 00:25:25
  */
 @Service("roleService")
 public class RoleServiceImpl extends ServiceImpl<RoleDao, Role> implements RoleService {

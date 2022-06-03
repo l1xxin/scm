@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 参赛表(TeamRace)表服务实现类
  *
  * @author makejava
- * @since 2022-06-02 10:33:16
+ * @since 2022-06-04 00:25:28
  */
 @Service("teamRaceService")
 public class TeamRaceServiceImpl extends ServiceImpl<TeamRaceDao, TeamRace> implements TeamRaceService {

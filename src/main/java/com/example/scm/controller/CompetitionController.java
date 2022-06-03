@@ -18,7 +18,7 @@ import java.util.List;
  * (Competition)表控制层
  *
  * @author makejava
- * @since 2022-06-02 10:32:57
+ * @since 2022-06-04 00:25:18
  */
 @RestController
 @RequestMapping("competition")

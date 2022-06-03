@@ -7,7 +7,7 @@ import com.example.scm.entity.Race;
  * 比赛表(Race)表服务接口
  *
  * @author makejava
- * @since 2022-06-02 10:33:04
+ * @since 2022-06-04 00:25:22
  */
 public interface RaceService extends IService<Race> {
 

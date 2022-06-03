@@ -10,7 +10,7 @@ import com.example.scm.entity.TeamRace;
  * 参赛表(TeamRace)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-02 10:33:14
+ * @since 2022-06-04 00:25:28
  */
 public interface TeamRaceDao extends BaseMapper<TeamRace> {
 
