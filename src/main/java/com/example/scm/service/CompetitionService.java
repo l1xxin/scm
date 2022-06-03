@@ -8,7 +8,7 @@ import com.example.scm.entity.Competition;
  * (Competition)表服务接口
  *
  * @author makejava
- * @since 2022-06-04 00:25:18
+ * @since 2022-06-04 00:44:20
  */
 public interface CompetitionService extends IService<Competition> {
 

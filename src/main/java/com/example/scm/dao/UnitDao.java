@@ -10,7 +10,7 @@ import com.example.scm.entity.Unit;
  * 单位表(Unit)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-04 00:25:30
+ * @since 2022-06-04 00:44:31
  */
 public interface UnitDao extends BaseMapper<Unit> {
 

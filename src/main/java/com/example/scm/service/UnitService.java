@@ -7,7 +7,7 @@ import com.example.scm.entity.Unit;
  * 单位表(Unit)表服务接口
  *
  * @author makejava
- * @since 2022-06-04 00:25:30
+ * @since 2022-06-04 00:44:31
  */
 public interface UnitService extends IService<Unit> {
 

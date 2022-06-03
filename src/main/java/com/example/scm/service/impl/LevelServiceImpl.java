@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 比赛级别表(Level)表服务实现类
  *
  * @author makejava
- * @since 2022-06-04 00:25:23
+ * @since 2022-06-04 00:44:23
  */
 @Service("levelService")
 public class LevelServiceImpl extends ServiceImpl<LevelDao, Level> implements LevelService {

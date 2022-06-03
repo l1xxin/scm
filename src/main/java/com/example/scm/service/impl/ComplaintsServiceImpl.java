@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 投诉表(Complaints)表服务实现类
  *
  * @author makejava
- * @since 2022-06-04 00:25:20
+ * @since 2022-06-04 00:44:21
  */
 @Service("complaintsService")
 public class ComplaintsServiceImpl extends ServiceImpl<ComplaintsDao, Complaints> implements ComplaintsService {

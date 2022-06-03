@@ -10,7 +10,7 @@ import com.example.scm.entity.Team;
  * 团队表(Team)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-04 00:25:26
+ * @since 2022-06-04 00:44:27
  */
 public interface TeamDao extends BaseMapper<Team> {
 

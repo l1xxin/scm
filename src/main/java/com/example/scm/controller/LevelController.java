@@ -17,7 +17,7 @@ import java.util.List;
  * 比赛级别表(Level)表控制层
  *
  * @author makejava
- * @since 2022-06-04 00:25:22
+ * @since 2022-06-04 00:44:22
  */
 @RestController
 @RequestMapping("level")

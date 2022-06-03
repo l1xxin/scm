@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 团队表(Team)表服务实现类
  *
  * @author makejava
- * @since 2022-06-04 00:25:27
+ * @since 2022-06-04 00:44:27
  */
 @Service("teamService")
 public class TeamServiceImpl extends ServiceImpl<TeamDao, Team> implements TeamService {

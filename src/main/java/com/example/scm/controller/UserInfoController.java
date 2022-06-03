@@ -17,7 +17,7 @@ import java.util.List;
  * 用户信息表(UserInfo)表控制层
  *
  * @author makejava
- * @since 2022-06-04 00:25:31
+ * @since 2022-06-04 00:44:32
  */
 @RestController
 @RequestMapping("userInfo")

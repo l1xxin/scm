@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
  * 单位表(Unit)表服务实现类
  *
  * @author makejava
- * @since 2022-06-04 00:25:30
+ * @since 2022-06-04 00:44:31
  */
 @Service("unitService")
 public class UnitServiceImpl extends ServiceImpl<UnitDao, Unit> implements UnitService {
