@@ -4,13 +4,12 @@ package com.example.scm.entity;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * (UserView)表实体类
  *
  * @author makejava
- * @since 2022-06-04 04:05:49
+ * @since 2022-06-04 14:15:24
  */
 @SuppressWarnings("serial")
 public class UserView extends Model<UserView> {
@@ -40,6 +39,8 @@ public class UserView extends Model<UserView> {
     private String wechat;
     //删除位
     private Integer state;
+    //单位名称
+    private String unitName;
 
 
     public Integer getId() {
@@ -144,6 +145,14 @@ public class UserView extends Model<UserView> {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
     }
 
 }

@@ -10,7 +10,7 @@ import com.example.scm.entity.UserView;
  * (UserView)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-04 04:05:49
+ * @since 2022-06-04 14:15:24
  */
 public interface UserViewDao extends BaseMapper<UserView> {
 
