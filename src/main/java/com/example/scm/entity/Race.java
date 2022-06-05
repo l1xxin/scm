@@ -2,6 +2,8 @@ package com.example.scm.entity;
 
 
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -10,7 +12,7 @@ import java.util.Date;
  * 比赛表(Race)表实体类
  *
  * @author makejava
- * @since 2022-06-04 00:44:23
+ * @since 2022-06-05 10:57:25
  */
 @SuppressWarnings("serial")
 public class Race extends Model<Race> {
@@ -44,6 +46,8 @@ public class Race extends Model<Race> {
     private Integer status;
     //删除位
     private Integer state;
+    //发布用户
+    private Integer userId;
 
 
     public Integer getId() {
@@ -164,6 +168,14 @@ public class Race extends Model<Race> {
 
     public void setState(Integer state) {
         this.state = state;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**
