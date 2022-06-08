@@ -11,10 +11,10 @@
 
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="teamId" useGeneratedKeys="true">
-        insert into scm.student_team(status, state)
+        insert into scm.student_team(team_id, student_id)
         values
         <foreach collection="entities" item="entity" separator=",">
-            (#{entity.status}, #{entity.state})
+            (#{entity.teamId}, #{entity.studentId})
         </foreach>
     </insert>
     <!-- 批量插入或按主键更新 -->

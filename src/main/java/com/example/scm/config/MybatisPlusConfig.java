@@ -7,6 +7,7 @@ import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.logging.stdout.StdOutImpl;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +67,9 @@ public class MybatisPlusConfig {
         // 插入和修改策略
         sqlSessionFactoryBean.getConfiguration().getGlobalConfig().getDbConfig().setUpdateStrategy(FieldStrategy.NOT_NULL);
         sqlSessionFactoryBean.getConfiguration().getGlobalConfig().getDbConfig().setInsertStrategy(FieldStrategy.NOT_NULL);
+
+        // 配置打印sql语句
+        sqlSessionFactoryBean.getConfiguration().setLogImpl(StdOutImpl.class);
 
         // 返回MybatisSqlSessionFactoryBean从而替代原生的sqlSessionFactory
         return sqlSessionFactoryBean.getObject();
