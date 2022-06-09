@@ -9,6 +9,14 @@
         <result property="state" column="state" jdbcType="INTEGER"/>
     </resultMap>
 
+    <!-- 修改 -->
+    <update id="invite">
+        UPDATE scm.student_team
+        SET status = #{entity.status}
+        WHERE team_id = #{entity.teamId}
+          and student_id = #{entity.studentId}
+    </update>
+
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="teamId" useGeneratedKeys="true">
         insert into scm.student_team(team_id, student_id)

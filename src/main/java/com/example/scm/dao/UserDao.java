@@ -2,6 +2,7 @@ package com.example.scm.dao;
 
 import java.util.List;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
 import com.example.scm.entity.User;
@@ -13,6 +14,14 @@ import com.example.scm.entity.User;
  * @since 2022-06-04 00:44:31
  */
 public interface UserDao extends BaseMapper<User> {
+
+    /**
+     * 登录
+     * @param ew 查询语句
+     * @return User 查询对象
+     */
+    User login(@Param("ew") QueryWrapper ew);
+
 
     /**
      * 批量新增数据（MyBatis原生foreach方法）

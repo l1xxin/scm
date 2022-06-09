@@ -2,10 +2,15 @@ package com.example.scm.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.example.scm.entity.StudentTeam;
 import com.example.scm.entity.Team;
+import com.example.scm.entity.TeamRace;
+import com.example.scm.service.SignProgressViewService;
+import com.example.scm.service.TeamRaceService;
 import com.example.scm.service.TeamService;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,6 +32,18 @@ public class TeamController extends ApiController {
      */
     @Resource
     private TeamService teamService;
+
+    /**
+     * 服务对象
+     */
+    @Resource
+    private TeamRaceService teamRaceService;
+
+    /**
+     * 服务对象
+     */
+    @Resource
+    private SignProgressViewService signProgressViewService;
 
     /**
      * 分页查询所有数据
@@ -71,6 +88,25 @@ public class TeamController extends ApiController {
     @PutMapping
     public R update(@RequestBody Team team) {
         return success(this.teamService.updateById(team));
+    }
+
+    /**
+     * 修改数据
+     *
+     * @param team 实体对象
+     * @return 修改结果
+     */
+    @RequestMapping(value = {"/invite"}, method = RequestMethod.PUT)
+    public R invite(@RequestBody Team team) {
+        int result = this.teamService.invite(team);
+        if (signProgressViewService.getById(team.getId()) == null) {
+            // 构造条件构造器
+            UpdateWrapper<TeamRace> wrapper = new UpdateWrapper<>();
+            wrapper.eq("team_id", team.getId());
+            wrapper.set("progress", 1);
+            teamRaceService.update(wrapper);
+        }
+        return success(result);
     }
 
     /**

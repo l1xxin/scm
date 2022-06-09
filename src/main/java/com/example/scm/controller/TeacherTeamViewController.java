@@ -5,8 +5,8 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.api.ApiController;
 import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.example.scm.entity.User;
-import com.example.scm.service.UserService;
+import com.example.scm.entity.TeacherTeamView;
+import com.example.scm.service.TeacherTeamViewService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -14,42 +14,30 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 用户表(User)表控制层
+ * (TeacherTeamView)表控制层
  *
  * @author makejava
- * @since 2022-06-04 00:44:31
+ * @since 2022-06-09 16:59:48
  */
 @RestController
-@RequestMapping("user")
-public class UserController extends ApiController {
+@RequestMapping("teacherTeamView")
+public class TeacherTeamViewController extends ApiController {
     /**
      * 服务对象
      */
     @Resource
-    private UserService userService;
-
-    /**
-     * 登录
-     * @param account,password
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping(value={"/login"},method= RequestMethod.GET)
-    public R studentLogin(String account, String password) throws Exception {
-        return success(this.userService.login(account, password));
-    }
-
+    private TeacherTeamViewService teacherTeamViewService;
 
     /**
      * 分页查询所有数据
      *
-     * @param page 分页对象
-     * @param user 查询实体
+     * @param page            分页对象
+     * @param teacherTeamView 查询实体
      * @return 所有数据
      */
     @GetMapping
-    public R selectAll(Page<User> page, User user) {
-        return success(this.userService.page(page, new QueryWrapper<>(user)));
+    public R selectAll(Page<TeacherTeamView> page, TeacherTeamView teacherTeamView) {
+        return success(this.teacherTeamViewService.page(page, new QueryWrapper<>(teacherTeamView)));
     }
 
     /**
@@ -60,29 +48,29 @@ public class UserController extends ApiController {
      */
     @GetMapping("{id}")
     public R selectOne(@PathVariable Serializable id) {
-        return success(this.userService.getById(id));
+        return success(this.teacherTeamViewService.getById(id));
     }
 
     /**
      * 新增数据
      *
-     * @param user 实体对象
+     * @param teacherTeamView 实体对象
      * @return 新增结果
      */
     @PostMapping
-    public R insert(@RequestBody User user) {
-        return success(this.userService.save(user));
+    public R insert(@RequestBody TeacherTeamView teacherTeamView) {
+        return success(this.teacherTeamViewService.save(teacherTeamView));
     }
 
     /**
      * 修改数据
      *
-     * @param user 实体对象
+     * @param teacherTeamView 实体对象
      * @return 修改结果
      */
     @PutMapping
-    public R update(@RequestBody User user) {
-        return success(this.userService.updateById(user));
+    public R update(@RequestBody TeacherTeamView teacherTeamView) {
+        return success(this.teacherTeamViewService.updateById(teacherTeamView));
     }
 
     /**
@@ -93,7 +81,7 @@ public class UserController extends ApiController {
      */
     @DeleteMapping
     public R delete(@RequestParam("idList") List<Long> idList) {
-        return success(this.userService.removeByIds(idList));
+        return success(this.teacherTeamViewService.removeByIds(idList));
     }
 }
 
