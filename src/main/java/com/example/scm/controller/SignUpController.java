@@ -59,7 +59,8 @@ public class SignUpController extends ApiController {
             studentTeam.setStudentId(idList.get(i));
             studentTeamList.add(studentTeam);
         }
-        studentTeamService.insertBatch(studentTeamList);
+        if (studentTeamList.size() > 0)
+            studentTeamService.insertBatch(studentTeamList);
 
         return success(team);
     }
