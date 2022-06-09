@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.CountRaceAchViewDao">
+
+    <resultMap type="com.example.scm.entity.CountRaceAchView" id="CountRaceAchViewMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="race" column="race" jdbcType="VARCHAR"/>
+        <result property="time" column="time" jdbcType="VARCHAR"/>
+        <result property="unit" column="unit" jdbcType="VARCHAR"/>
+        <result property="win" column="win" jdbcType="INTEGER"/>
+        <result property="attend" column="attend" jdbcType="INTEGER"/>
+        <result property="level" column="level" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="" useGeneratedKeys="true">
+        insert into scm.count_race_ach_view(id, race, time, unit, win, attend, level)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.id}, #{entity.race}, #{entity.time}, #{entity.unit}, #{entity.win}, #{entity.attend},
+            #{entity.level})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="" useGeneratedKeys="true">
+        insert into scm.count_race_ach_view(id, race, time, unit, win, attend, level)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.id}, #{entity.race}, #{entity.time}, #{entity.unit}, #{entity.win}, #{entity.attend},
+            #{entity.level})
+        </foreach>
+        on duplicate key update
+        id = values(id) , race = values(race) , time = values(time) , unit = values(unit) , win = values(win) , attend =
+        values(attend) , level = values(level)
+    </insert>
+
+</mapper>
+

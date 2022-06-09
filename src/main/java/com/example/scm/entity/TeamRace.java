@@ -1,6 +1,8 @@
 package com.example.scm.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 
 import java.io.Serializable;
@@ -13,6 +15,7 @@ import java.io.Serializable;
  */
 @SuppressWarnings("serial")
 public class TeamRace extends Model<TeamRace> {
+    @TableId(value = "team_id",type = IdType.INPUT)
     //团队编号(自增长)
     private Integer teamId;
     //比赛编号
@@ -20,7 +23,7 @@ public class TeamRace extends Model<TeamRace> {
     //报名进度
     private Integer progress;
     //评分
-    private Object score;
+    private Integer score;
     //得奖情况：-1未评奖
     private Integer awardsId;
     //删除位
@@ -51,11 +54,11 @@ public class TeamRace extends Model<TeamRace> {
         this.progress = progress;
     }
 
-    public Object getScore() {
+    public Integer getScore() {
         return score;
     }
 
-    public void setScore(Object score) {
+    public void setScore(Integer score) {
         this.score = score;
     }
 

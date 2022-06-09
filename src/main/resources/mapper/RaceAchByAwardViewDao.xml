@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.RaceAchByAwardViewDao">
+
+    <resultMap type="com.example.scm.entity.RaceAchByAwardView" id="RaceAchByAwardViewMap">
+        <result property="race" column="race" jdbcType="INTEGER"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="value" column="value" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="" useGeneratedKeys="true">
+        insert into scm.race_ach_by_award_view(race, name, value)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.race}, #{entity.name}, #{entity.value})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="" useGeneratedKeys="true">
+        insert into scm.race_ach_by_award_view(race, name, value)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.race}, #{entity.name}, #{entity.value})
+        </foreach>
+        on duplicate key update
+        race = values(race) , name = values(name) , value = values(value)
+    </insert>
+
+</mapper>
+
