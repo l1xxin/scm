@@ -2,6 +2,7 @@ package com.example.scm.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.example.scm.dao.TeamDao;
+import com.example.scm.entity.StudentTeam;
 import com.example.scm.entity.Team;
 import com.example.scm.service.TeamService;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ import org.springframework.stereotype.Service;
  */
 @Service("teamService")
 public class TeamServiceImpl extends ServiceImpl<TeamDao, Team> implements TeamService {
-
+    @Override
+    public int invite(Team team) {
+        return super.baseMapper.invite(team);
+    }
 }
 

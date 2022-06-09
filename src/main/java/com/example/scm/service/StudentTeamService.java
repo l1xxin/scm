@@ -14,5 +14,7 @@ import java.util.List;
  */
 public interface StudentTeamService extends IService<StudentTeam> {
     int insertBatch(List<StudentTeam> entities);
+
+    int invite(StudentTeam studentTeam);
 }
 

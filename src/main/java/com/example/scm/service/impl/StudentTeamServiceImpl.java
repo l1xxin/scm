@@ -21,5 +21,10 @@ public class StudentTeamServiceImpl extends ServiceImpl<StudentTeamDao, StudentT
     public int insertBatch(List<StudentTeam> entities) {
         return super.baseMapper.insertBatch(entities);
     }
+
+    @Override
+    public int invite(StudentTeam studentTeam) {
+        return super.baseMapper.invite(studentTeam);
+    }
 }
 

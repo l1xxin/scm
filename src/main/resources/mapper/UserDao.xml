@@ -10,6 +10,14 @@
         <result property="state" column="state" jdbcType="INTEGER"/>
     </resultMap>
 
+    <!-- 登录查询 -->
+    <select id="login" resultMap="UserMap">
+        select * from scm.user
+        <if test="ew.sqlSegment != null and ew.sqlSegment != ''">
+            ${ew.sqlSegment}
+        </if>
+    </select>
+
     <!-- 批量插入 -->
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
         insert into scm.user(role_id, account, password, state)

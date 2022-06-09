@@ -44,9 +44,9 @@ public class SignUpController extends ApiController {
         Race race = JSONObject.parseObject(param.get("race").toString(), Race.class);
         Team team = JSONObject.parseObject(param.get("team").toString(), Team.class);
         List<Integer> idList = JSONObject.parseArray(param.get("idList").toString(), Integer.class);
-        idList.add(team.getStudentId());
 
         teamService.save(team);
+
         TeamRace teamRace = new TeamRace();
         teamRace.setRaceId(race.getId());
         teamRace.setTeamId(team.getId());
@@ -59,8 +59,8 @@ public class SignUpController extends ApiController {
             studentTeam.setStudentId(idList.get(i));
             studentTeamList.add(studentTeam);
         }
-
         studentTeamService.insertBatch(studentTeamList);
+
         return success(team);
     }
 }

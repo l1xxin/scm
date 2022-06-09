@@ -10,6 +10,6 @@ import com.example.scm.entity.User;
  * @since 2022-06-04 00:44:32
  */
 public interface UserService extends IService<User> {
-
+    User login(String account, String password);
 }
 

@@ -14,6 +14,8 @@ import com.example.scm.entity.StudentTeam;
  */
 public interface StudentTeamDao extends BaseMapper<StudentTeam> {
 
+    int invite(@Param("entity") StudentTeam entity);
+
     /**
      * 批量新增数据（MyBatis原生foreach方法）
      *
