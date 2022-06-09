@@ -10,7 +10,7 @@ import com.example.scm.entity.RaceAchByAwardView;
  * (RaceAchByAwardView)表数据库访问层
  *
  * @author makejava
- * @since 2022-06-09 21:09:35
+ * @since 2022-06-09 23:00:57
  */
 public interface RaceAchByAwardViewDao extends BaseMapper<RaceAchByAwardView> {
 

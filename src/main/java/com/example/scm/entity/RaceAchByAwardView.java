@@ -9,7 +9,7 @@ import java.io.Serializable;
  * (RaceAchByAwardView)表实体类
  *
  * @author makejava
- * @since 2022-06-09 21:09:36
+ * @since 2022-06-09 23:00:57
  */
 @SuppressWarnings("serial")
 public class RaceAchByAwardView extends Model<RaceAchByAwardView> {
