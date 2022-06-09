@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.scm.dao.HandleComplaintsViewDao">
+
+    <resultMap type="com.example.scm.entity.HandleComplaintsView" id="HandleComplaintsViewMap">
+        <result property="cId" column="c_id" jdbcType="INTEGER"/>
+        <result property="uId" column="u_id" jdbcType="INTEGER"/>
+        <result property="uName" column="u_name" jdbcType="VARCHAR"/>
+        <result property="tId" column="t_id" jdbcType="INTEGER"/>
+        <result property="tName" column="t_name" jdbcType="VARCHAR"/>
+        <result property="rName" column="r_name" jdbcType="VARCHAR"/>
+        <result property="description" column="description" jdbcType="VARCHAR"/>
+        <result property="progress" column="progress" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="rId" column="r_id" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="" useGeneratedKeys="true">
+        insert into scm.handle_complaints_view(c_id, u_id, u_name, t_id, t_name, r_name, description, progress, status,
+        r_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.cId}, #{entity.uId}, #{entity.uName}, #{entity.tId}, #{entity.tName}, #{entity.rName},
+            #{entity.description}, #{entity.progress}, #{entity.status}, #{entity.rId})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="" useGeneratedKeys="true">
+        insert into scm.handle_complaints_view(c_id, u_id, u_name, t_id, t_name, r_name, description, progress, status,
+        r_id)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.cId}, #{entity.uId}, #{entity.uName}, #{entity.tId}, #{entity.tName}, #{entity.rName},
+            #{entity.description}, #{entity.progress}, #{entity.status}, #{entity.rId})
+        </foreach>
+        on duplicate key update
+        c_id = values(c_id) , u_id = values(u_id) , u_name = values(u_name) , t_id = values(t_id) , t_name =
+        values(t_name) , r_name = values(r_name) , description = values(description) , progress = values(progress) ,
+        status = values(status) , r_id = values(r_id)
+    </insert>
+
+</mapper>
+
